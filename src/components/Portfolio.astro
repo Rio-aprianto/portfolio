@@ -1,0 +1,179 @@
+---
+// Inline SVG mocks so the site is zero-asset and ringan.
+const webProjects = [
+  {
+    name: "Web Admin Laravel — Famheal",
+    tag: "Website",
+    color: "#1FB6F3",
+    text: "Famheal",
+    img: "portfolio/web-laravel.jpg",
+  },
+  {
+    name: "Admin Panel — Website MWC",
+    tag: "Website",
+    color: "#0EA5E9",
+    text: "Admin MWC",
+    img: "portfolio/admin-mwc.png",
+  },
+];
+const mobileProjects = [
+  {
+    name: "Posbunda — Mobile App",
+    tag: "Mobile",
+    color: "#1FB6F3",
+    text: "Posbunda",
+    img: "portfolio/mobile-1.png",
+  },
+  {
+    name: "Famheal — Mobile App",
+    tag: "Mobile",
+    color: "#0284C7",
+    text: "Famheal",
+    img: "portfolio/mobile-2.png",
+  },
+];
+const invitations = [
+  {
+    name: "Sarah & Faizal — Wedding",
+    tag: "Undangan Digital",
+    color: "#1FB6F3",
+    text: "S & F",
+    img: "https://www.wevitation.com/img/slider/slideshow-3.webp",
+  },
+  {
+    name: "Ninda & Bagus — Wedding",
+    tag: "Undangan Digital",
+    color: "#38BDF8",
+    text: "N & B",
+    img: "https://www.wevitation.com/img/slider/slideshow-8.webp",
+  },
+];
+---
+
+<section id='portfolio' class='py-20 px-5 lg:px-8'>
+  <div class='max-w-6xl mx-auto'>
+    <div class='text-center reveal'>
+      <p class='text-brand text-sm font-semibold tracking-widest'>MY WORK</p>
+      <h2 class='mt-2 text-3xl md:text-4xl font-extrabold text-slate-900'>
+        Portfolio Project
+      </h2>
+      <p class='mt-3 text-slate-500 max-w-xl mx-auto'>
+        Beberapa project yang pernah saya buat — dari website, aplikasi mobile,
+        hingga undangan digital.
+      </p>
+    </div>
+
+    <!-- WEB -->
+    <h3 class='mt-14 mb-6 text-lg font-bold text-slate-800 reveal'>
+      <img
+        src='https://img.icons8.com/?size=100&id=102552&format=png&color=000000'
+        class='w-5 h-5 inline-block mr-2'
+      />Website
+    </h3>
+    <div class='grid sm:grid-cols-2 gap-6'>
+      {
+        webProjects.map((p, i) => (
+          <article
+            class={`reveal reveal-delay-${(i % 2) + 1} group rounded-2xl overflow-hidden ring-1 ring-slate-100 bg-white shadow-sm hover:shadow-xl transition`}>
+            <div class='aspect-[16/10] relative overflow-hidden'>
+              <img
+                src={p.img}
+                alt={p.name}
+                class='w-full h-full transition-transform duration-700 group-hover:scale-110'
+              />
+              <div class='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all' />
+            </div>
+
+            <div class='p-5 flex items-center justify-between'>
+              <div>
+                <p class='text-xs text-brand font-semibold uppercase tracking-wider'>
+                  {p.tag}
+                </p>
+                <h4 class='font-bold text-slate-800 mt-1'>{p.name}</h4>
+              </div>
+              <span class='text-brand group-hover:translate-x-1 transition'>
+                →
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- MOBILE -->
+    <h3 class='mt-14 mb-6 text-lg font-bold text-slate-800 reveal'>
+      <img
+        src='https://img.icons8.com/?size=100&id=8XCtpwQjuerS&format=png&color=000000'
+        class='w-5 h-5 inline-block mr-2'
+      />Mobile App
+    </h3>
+    <div class='grid sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+      {
+        mobileProjects.map((p, i) => (
+          <article class={`reveal reveal-delay-${(i % 3) + 1} text-center group`}>
+            <div class='mx-auto w-[180px] h-[360px] rounded-[2rem] bg-slate-900 p-2 shadow-xl relative overflow-hidden'>
+              
+              <!-- Phone Frame -->
+              <div class='w-full h-full rounded-[1.5rem] overflow-hidden relative'>
+                
+                <!-- Status Bar -->
+                <div class='absolute top-2 inset-x-0 flex justify-center z-10'>
+                  <div class='w-16 h-4 bg-slate-900 rounded-full' />
+                </div>
+
+                <!-- Gambar Project -->
+                <img 
+                  src={p.img} 
+                  alt={p.name}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <!-- Optional Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+              </div>
+            </div>
+
+            <p class='mt-4 text-xs text-brand font-semibold uppercase tracking-wider'>
+              {p.tag}
+            </p>
+            <h4 class='font-bold text-slate-800'>{p.name}</h4>
+          </article>
+        ))
+      }
+
+      <!-- INVITATIONS rendered as mobile frames too -->
+      {
+        invitations.map((p, i) => (
+          <article class={`reveal reveal-delay-${(i % 3) + 1} text-center group`}>
+            <div class='mx-auto w-[180px] h-[360px] rounded-[2rem] bg-slate-900 p-2 shadow-xl relative overflow-hidden'>
+              
+              <!-- Phone Frame -->
+              <div class='w-full h-full rounded-[1.5rem] overflow-hidden relative'>
+                
+                <!-- Status Bar -->
+                <div class='absolute top-2 inset-x-0 flex justify-center z-10'>
+                  <div class='w-16 h-4 bg-slate-900 rounded-full' />
+                </div>
+
+                <!-- Gambar Undangan -->
+                <img 
+                  src={p.img} 
+                  alt={p.name}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <!-- Overlay gelap supaya teks tetap terbaca jika diperlukan -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+            </div>
+
+            <p class='mt-4 text-xs text-brand font-semibold uppercase tracking-wider'>
+              {p.tag}
+            </p>
+            <h4 class='font-bold text-slate-800'>{p.name}</h4>
+          </article>
+        ))
+}
+    </div>
+  </div>
+</section>

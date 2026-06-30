@@ -1,0 +1,26 @@
+---
+const services = [
+  { t: 'Website Development', d: 'Landing page, company profile, dan web app yang cepat dan SEO-friendly.', i: 'M3 5h18v14H3z M3 9h18' },
+  { t: 'Mobile App', d: 'Aplikasi Android & iOS dengan UI modern dan performa ringan.', i: 'M7 2h10v20H7z M11 18h2' },
+  { t: 'Undangan Digital', d: 'Undangan online elegan dan responsif untuk pernikahan, ulang tahun, dll.', i: 'M3 7l9 6 9-6 M3 7v10h18V7' },
+];
+---
+<section id="services" class="py-20 px-5 lg:px-8 bg-slate-50/60">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <p class="text-brand text-sm font-semibold tracking-widest">MY SERVICES</p>
+      <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Layanan Saya</h2>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s, i) => (
+        <div class={`reveal reveal-delay-${(i%3)+1} bg-white rounded-2xl p-7 ring-1 ring-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition`}>
+          <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand grid place-items-center mb-5">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d={s.i}/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-slate-500 leading-relaxed">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

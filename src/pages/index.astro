@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Services from "../components/Services.astro";
+import Portfolio from "../components/Portfolio.astro";
+import Pricing from "../components/Pricing.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Services />
+    <Portfolio />
+    <Pricing />
+    <Contact />
+  </main>
+
+  <button
+    id='backToTop'
+    aria-label='Back to top'
+    class='fixed bottom-6 right-6 z-[99] translate-y-20 opacity-0 bg-brand hover:bg-brand-dark text-white p-3 rounded-full shadow-lg shadow-brand/30 transition-all duration-300 focus:outline-none pointer-events-none'
+  >
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      stroke-width='2.5'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    >
+      <path d='m18 15-6-6-6 6'></path>
+    </svg>
+  </button>
+</Layout>
+
+<script>
+  function initBackToTop() {
+    const btn = document.getElementById("backToTop");
+
+    if (btn) {
+      // Deteksi posisi scroll user
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+          // Muncul perlahan dari bawah ke atas saat scroll > 400px
+          btn.classList.remove(
+            "translate-y-20",
+            "opacity-0",
+            "pointer-events-none",
+          );
+          btn.classList.add("translate-y-0", "opacity-100");
+        } else {
+          // Sembunyi kembali saat di posisi paling atas
+          btn.classList.remove("translate-y-0", "opacity-100");
+          btn.classList.add(
+            "translate-y-20",
+            "opacity-0",
+            "pointer-events-none",
+          );
+        }
+      });
+
+      // Efek smooth scroll ke atas saat diklik
+      btn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    }
+  }
+
+  // Inisialisasi awal & support Astro View Transitions
+  initBackToTop();
+  document.addEventListener("astro:page-load", initBackToTop);
+</script>

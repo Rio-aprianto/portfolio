@@ -1,0 +1,69 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Rio Aprianto — Web & Mobile Developer",
+  description = "Portfolio jasa pembuatan website dan aplikasi mobile.",
+} = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang='id'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content={description} />
+    <link rel='icon' type='image/svg+xml' href='/logo.png' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'
+      rel='stylesheet'
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      // Scroll reveal — runs immediately, no refresh needed
+      (function () {
+        const init = () => {
+          const els = document.querySelectorAll(".reveal");
+          if (!("IntersectionObserver" in window)) {
+            els.forEach((e) => e.classList.add("is-visible"));
+            return;
+          }
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((en) => {
+                if (en.isIntersecting) {
+                  en.target.classList.add("is-visible");
+                  io.unobserve(en.target);
+                }
+              });
+            },
+            { threshold: 0.12 },
+          );
+          els.forEach((el) => io.observe(el));
+        };
+        if (document.readyState !== "loading") init();
+        else document.addEventListener("DOMContentLoaded", init);
+      })();
+
+      // Mobile nav toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("navToggle");
+        const menu = document.getElementById("navMenu");
+        btn?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+        menu
+          ?.querySelectorAll("a")
+          .forEach((a) =>
+            a.addEventListener("click", () => menu.classList.add("hidden")),
+          );
+      });
+    </script>
+  </body>
+</html>

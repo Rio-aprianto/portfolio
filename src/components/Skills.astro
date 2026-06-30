@@ -1,0 +1,110 @@
+---
+const skills = [
+  {
+    name: "React",
+    icon: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000",
+  },
+  {
+    name: "Next.js",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    name: "Astro",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/astro/astro-original.svg",
+  },
+  {
+    name: "Vite",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg",
+  },
+  {
+    name: "Node.js",
+    icon: "https://img.icons8.com/?size=100&id=54087&format=png&color=000000",
+  },
+  {
+    name: "Laravel",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
+  },
+  {
+    name: "Bootstrap",
+    icon: "https://img.icons8.com/?size=100&id=84710&format=png&color=000000",
+  },
+  {
+    name: "TypeScript",
+    icon: "https://img.icons8.com/?size=100&id=uJM6fQYqDaZK&format=png&color=000000",
+  },
+  {
+    name: "JavaScript",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "React Native",
+    icon: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000",
+  },
+  {
+    name: "Firebase",
+    icon: "https://img.icons8.com/?size=100&id=62452&format=png&color=000000",
+  },
+  {
+    name: "Supabase",
+    icon: "https://img.icons8.com/?size=100&id=grZaE9tjqDyr&format=png&color=000000",
+  },
+  {
+    name: "MySQL",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+  },
+  {
+    name: "GitHub",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg",
+  },
+  {
+    name: "VS Code",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
+  },
+  {
+    name: "CodeIgniter",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/codeigniter/codeigniter-plain.svg",
+  },
+  {
+    name: "PHP",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg",
+  },
+];
+
+const loop = [...skills, ...skills];
+---
+
+<section id='skills' class='py-20 px-0 overflow-hidden'>
+  <div class='max-w-6xl mx-auto px-5 lg:px-8 text-center reveal'>
+    <p class='text-brand text-sm font-semibold tracking-widest'>MY SKILLS</p>
+    <h2 class='mt-2 text-3xl md:text-4xl font-extrabold text-slate-900'>
+      Keahlian yang Saya Kuasai
+    </h2>
+    <p class='mt-3 text-slate-500 max-w-xl mx-auto'>
+      Teknologi dan tools yang saya gunakan setiap hari untuk membangun produk
+      yang andal.
+    </p>
+  </div>
+
+  <div class='mt-12 mask-fade-x'>
+    <div class='flex gap-5 w-max animate-scroll-x'>
+      {
+        loop.map((s) => (
+          <div class='shrink-0 w-36 sm:w-40 bg-white rounded-2xl ring-1 ring-slate-100 shadow-sm hover:shadow-md transition px-5 py-6 flex flex-col items-center gap-3'>
+            <div class='w-12 h-12 rounded-xl bg-brand-light grid place-items-center'>
+              <img
+                src={s.icon}
+                alt={s.name}
+                class='w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110'
+              />
+            </div>
+            <p class='text-sm font-semibold text-slate-700'>{s.name}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
